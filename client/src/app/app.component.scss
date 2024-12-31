@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    height: 100vh;
+    border: 1px solid rgb(0, 0, 0);
+    width: 100%;
+    flex-direction: column;
+}
+
+.content {
+    display: flex;
+    border: 1px solid rgb(0, 0, 0);
+    flex-direction: column;
+    flex-grow: 1;
+
+}
