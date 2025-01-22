@@ -1,7 +1,7 @@
 import { User } from "../_models/user"
 
-const defaultAvatar = '/assets/icon.png'
-const defaultImage = '/assets/not-found.icon.jpg'
+const defaultAvatar = '/assets/defaultAvatar.png'
+const defaultImage = '/assets/Image-not-found.png'
 
 function getAvatar(user: User): string {
     if (user.photos) {
@@ -9,9 +9,9 @@ function getAvatar(user: User): string {
         if (avatar)
             return avatar.url
     }
+
     return defaultAvatar
 }
-
 
 function getPhotoOfTheDay(user: User): string {
     if (user.photos && user.photos.length > 0) {
@@ -23,6 +23,6 @@ function getPhotoOfTheDay(user: User): string {
 
 export function parseUserPhoto(user: User): User {
     user.avatar = getAvatar(user)
-    user.photoOftheDay = getPhotoOfTheDay(user)
+    user.photoOfTheDay = getPhotoOfTheDay(user)
     return user
 }

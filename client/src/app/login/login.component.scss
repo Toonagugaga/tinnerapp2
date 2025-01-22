@@ -26,22 +26,23 @@ form {
 
 .login-spacer {
     margin-top: 1em;
-    // margin-bottom: 0.5em;
+    margin-bottom: 0.5em;
     display: flex;
     justify-content: center;
+    align-items: center;
     position: relative;
-    line-height: 2rem;
+    line-height: 0rem;
     color: #a2abb4;
 }
 
 .login-spacer::after {
     margin-left: 12px;
-    border-bottom: 1px solid red;
+    border-bottom: 1px solid #a2abb4;
 }
 
 .login-spacer::before {
-    margin-left: 12px;
-    border-bottom: 1px solid red;
+    margin-right: 12px;
+    border-bottom: 1px solid #a2abb4;
 }
 
 *::after,
@@ -62,4 +63,9 @@ form {
         color: rgb(24, 80, 233);
         cursor: pointer;
     }
+}
+
+.error {
+    color: red;
+    font-size: small;
 }

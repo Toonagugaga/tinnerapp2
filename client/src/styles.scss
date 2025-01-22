@@ -3,31 +3,30 @@
 @use '@angular/material' as mat;
 
 html {
-  @include mat.theme((color: (theme-type: light,
-        primary: mat.$azure-palette,
-        tertiary: mat.$blue-palette,
-      ),
-      typography: Roboto,
-      density: 0,
-    ));
+    @include mat.theme((color: (theme-type: light,
+                // primary: mat.$azure-palette,
+                primary: mat.$violet-palette,
+                tertiary: mat.$blue-palette,
+            ),
+            typography: Roboto,
+            density: 0,
+        ));
 }
 
-/* You can add global styles to this file, and also import other style files */
-
-html,
-body {
-  height: 100%;
+html {
+    height: 100%;
 }
 
 body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+    height: 100%;
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 .my-spacer {
-  flex: 1 1 auto;
+    flex: 1 1 auto;
 }
 
 .image-avatar {
-  background-size: cover;
+    background-size: cover;
 }
