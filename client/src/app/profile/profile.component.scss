@@ -1,0 +1,34 @@
+.profile-container {
+    display: flex;
+    flex-grow: 1;
+    padding-left: 2em;
+    padding-right: 2em;
+    max-width: 100vw;
+    height: 100%;
+    overflow: hidden;
+
+    mat-tab-group {
+        padding-top: 1em;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        width: 100%;
+    }
+
+    form {
+        display: block;
+        flex-direction: column;
+        text-align: end;
+        margin-top: 1em;
+        flex-grow: 1;
+    }
+
+    button {
+        margin-bottom: 1em;
+    }
+
+    mat-form-field {
+        width: 100;
+        display: block;
+    }
+}

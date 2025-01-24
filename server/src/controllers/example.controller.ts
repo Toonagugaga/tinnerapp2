@@ -8,6 +8,9 @@ export const Example = new Elysia()
             description: "agu ga ga"
         }
     })
+    .get("/home", () => "agugaga", {
+
+    })
     .post("/about", ({ body }) => {
         return {
 

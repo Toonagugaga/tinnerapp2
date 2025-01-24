@@ -1,0 +1,59 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    font-family: "Lato", sans-serif;
+    background: linear-gradient(#81A17D, #2C3A40);
+    color: #E3DCB9;
+    overflow: hidden;
+}
+
+#container {
+    position: absolute;
+    display: grid;
+    transform: translate(-50%, -50%);
+    top: 50vh;
+    left: 50vw;
+    text-align: center;
+    text-Transform: uppercase;
+}
+
+#error.Code {
+    font-size: 40vmin;
+    margin: 0.5vmin;
+    animation: font-shadow-500 4s alternate infinite ease-in-out;
+}
+
+h1 {
+    font-size: 5vmin;
+    animation: rotation 1s ease-out;
+    margin: 0.5vmin;
+}
+
+h1::first-line {
+    font-size: 3vmin;
+}
+
+@keyframes font-shadow-500 {
+    0% {
+        text-shadow: hsl(50, 49%, 55%) 0px 0px, hsl(50, 49%, 55%) 0px 0, hsl(50, 49%, 55%) 1px 0, hsl(50, 49%, 55%) 2px 0, hsl(50, 49%, 55%) 3px 0, hsl(50, 49%, 55%) 4px 0, hsl(50, 49%, 55%) 5px 0, hsl(50, 49%, 55%) 6px 0, hsl(50, 49%, 55%) 7px 0, hsl(50, 49%, 55%) 8px 0, hsl(50, 49%, 55%) 9px 0, hsl(50, 49%, 55%) 10px 0, hsl(50, 49%, 55%) 11px 0, hsl(50, 49%, 55%) 12px 0, hsl(50, 49%, 55%) 13px 0, hsl(50, 49%, 55%) 14px 0, hsl(50, 49%, 55%) 15px 0, hsl(50, 49%, 55%) 16px 0, hsl(50, 49%, 55%) 17px 0, hsl(50, 49%, 55%) 18px 0, hsl(50, 49%, 55%) 19px 0, hsl(50, 49%, 55%) 20px 0, hsl(50, 49%, 55%) 21px 0, hsl(50, 49%, 55%) 22px 0, hsl(50, 49%, 55%) 23px 0, hsl(50, 49%, 55%) 24px 0, hsl(50, 49%, 55%) 25px 0, hsl(50, 49%, 55%) 26px 0, hsl(50, 49%, 55%) 27px 0, hsl(50, 49%, 55%) 28px 0, hsl(50, 49%, 55%) 29px 0, hsl(50, 49%, 55%) 30px 0, hsl(50, 49%, 55%) 31px 0, hsl(50, 49%, 55%) 32px 0, hsl(50, 49%, 55%) 33px 0, hsl(50, 49%, 55%) 34px 0, hsl(50, 49%, 55%) 35px 0, hsl(50, 49%, 55%) 36px 0, hsl(50, 49%, 55%) 37px 0, hsl(50, 49%, 55%) 38px 0, hsl(50, 49%, 55%) 39px 0, hsl(50, 49%, 55%) 40px 0, hsl(50, 49%, 55%) 41px 0, hsl(50, 49%, 55%) 42px 0, hsl(50, 49%, 55%) 43px 0, hsl(50, 49%, 55%) 44px 0, hsl(50, 49%, 55%) 45px 0, hsl(50, 49%, 55%) 46px 0, hsl(50, 49%, 55%) 47px 0, hsl(50, 49%, 55%) 48px 0, hsl(50, 49%, 55%) 49px 0;
+        transform: rotateY(40deg);
+    }
+
+    100% {
+        text-shadow: hsl(50, 49%, 55%) 0px 0px, hsl(50, 49%, 55%) 0px 0, hsl(50, 49%, 55%) -1px 0, hsl(50, 49%, 55%) -2px 0, hsl(50, 49%, 55%) -3px 0, hsl(50, 49%, 55%) -4px 0, hsl(50, 49%, 55%) -5px 0, hsl(50, 49%, 55%) -6px 0, hsl(50, 49%, 55%) -7px 0, hsl(50, 49%, 55%) -8px 0, hsl(50, 49%, 55%) -9px 0, hsl(50, 49%, 55%) -10px 0, hsl(50, 49%, 55%) -11px 0, hsl(50, 49%, 55%) -12px 0, hsl(50, 49%, 55%) -13px 0, hsl(50, 49%, 55%) -14px 0, hsl(50, 49%, 55%) -15px 0, hsl(50, 49%, 55%) -16px 0, hsl(50, 49%, 55%) -17px 0, hsl(50, 49%, 55%) -18px 0, hsl(50, 49%, 55%) -19px 0, hsl(50, 49%, 55%) -20px 0, hsl(50, 49%, 55%) -21px 0, hsl(50, 49%, 55%) -22px 0, hsl(50, 49%, 55%) -23px 0, hsl(50, 49%, 55%) -24px 0, hsl(50, 49%, 55%) -25px 0, hsl(50, 49%, 55%) -26px 0, hsl(50, 49%, 55%) -27px 0, hsl(50, 49%, 55%) -28px 0, hsl(50, 49%, 55%) -29px 0, hsl(50, 49%, 55%) -30px 0, hsl(50, 49%, 55%) -31px 0, hsl(50, 49%, 55%) -32px 0, hsl(50, 49%, 55%) -33px 0, hsl(50, 49%, 55%) -34px 0, hsl(50, 49%, 55%) -35px 0, hsl(50, 49%, 55%) -36px 0, hsl(50, 49%, 55%) -37px 0, hsl(50, 49%, 55%) -38px 0, hsl(50, 49%, 55%) -39px 0, hsl(50, 49%, 55%) -40px 0, hsl(50, 49%, 55%) -41px 0, hsl(50, 49%, 55%) -42px 0, hsl(50, 49%, 55%) -43px 0, hsl(50, 49%, 55%) -44px 0, hsl(50, 49%, 55%) -45px 0, hsl(50, 49%, 55%) -46px 0, hsl(50, 49%, 55%) -47px 0, hsl(50, 49%, 55%) -48px 0, hsl(50, 49%, 55%) -49px 0;
+        transform: rotateY(-40deg);
+    }
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotateX(0deg);
+    }
+
+    to {
+        transform: rotateX(720deg);
+    }
+}

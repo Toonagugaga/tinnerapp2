@@ -1,4 +1,4 @@
-import { error } from "console"
+import { error } from "elysia"
 import Elysia, { t } from "elysia"
 
 export const ErrorController = new Elysia({

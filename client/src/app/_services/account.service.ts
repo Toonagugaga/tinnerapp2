@@ -65,4 +65,21 @@ export class AccountService {
       this.data.set(data)
     }
   }
+
+  async updateProfile(user: User): Promise<boolean> {
+    const url = environment.baseUrl + 'api/user/'
+    try {
+      const response = this._http.patch(url, user)
+      await firstValueFrom(response)
+      const currentData = this.data()
+      if (currentData) {
+        currentData.user = user
+        this.data.set(currentData)
+        this.saveDataToLocalStorage()
+      }
+    } catch (error) {
+      false
+    }
+    return true
+  }
 }
