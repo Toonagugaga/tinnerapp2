@@ -19,6 +19,7 @@
     "@angular/platform-browser": "^19.0.5",
     "@angular/platform-browser-dynamic": "^19.0.5",
     "@angular/router": "^19.0.5",
+    "file-type": "^20.0.0",
     "gsap": "^3.12.5",
     "ng-gallery": "^12.0.0",
     "ngx-spinner": "^17.0.0",

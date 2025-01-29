@@ -1,0 +1,60 @@
+.photo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-wrap: 1;
+    overflow: auto;
+    height: 100%;
+
+    border: 1px solid red;
+
+    .upload-photo {
+        position: fixed;
+        bottom: 25px;
+        right: 20px;
+        z-index: 1000;
+    }
+
+    mat-card {
+        margin: 1em;
+        width: 250px;
+        height: 340px;
+    }
+
+    mat-card-header {
+        display: flex;
+        justify-content: center;
+        align-items: start;
+        margin: 0;
+        padding: 0;
+        padding-left: 1em;
+        padding-top: 0.5em;
+        padding-bottom: 0em;
+        height: 2em;
+
+    }
+
+    p {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        margin-top: 5px;
+    }
+
+    mat-card-actions {
+        margin: 0;
+    }
+
+    .delete-photo,
+    .set-avatar {
+        font-size: smaller;
+
+    }
+
+    .avatar {
+        margin: 0;
+        color: aqua;
+    }
+
+}
