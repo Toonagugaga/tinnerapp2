@@ -1,3 +1,13 @@
-<p>home works!</p>
-<!-- <button (click)="callError(500)">500</button>
-<button (click)="callError(503)">503</button> -->
+@if (!user()) {
+<div class="container">
+    <div class="welcome">
+        <h1>Welcome to tinner app</h1>
+        <h3>Come on into view your match</h3>
+        <p>all you need todo is <a href="/login">Sign in  or Creat an Account</a></p>
+    </div>
+</div>
+}
+@if (user()) {
+<app-member> </app-member>
+}
+

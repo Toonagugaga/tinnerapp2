@@ -72,12 +72,7 @@ export class AccountService {
     try {
       const response = this._http.patch(url, user)
       await firstValueFrom(response)
-      const currentData = this.data()
-      if (currentData) {
-        currentData.user = user
-        this.data.set(currentData)
-        this.saveDataToLocalStorage()
-      }
+      this.setUser(user)
     } catch (error) {
       false
     }
@@ -96,11 +91,7 @@ export class AccountService {
         })
 
         user.photos = photos
-        const copyData = this.data()
-        if (copyData)
-          copyData.user = user
-        this.data.set(copyData)
-        this.saveDataToLocalStorage()
+        this.setUser(user)
       }
     } catch (error) {
 
@@ -116,11 +107,7 @@ export class AccountService {
       if (user) {
         const photos = user.photos?.filter(p => p.id !== photo_id)
         user.photos = photos
-        const copyData = this.data()
-        if (copyData)
-          copyData.user = user
-        this.data.set(copyData)
-        this.saveDataToLocalStorage()
+        this.setUser(user)
       }
     } catch (error) {
 
@@ -139,16 +126,20 @@ export class AccountService {
         if (!user.photos)
           user.photos = []
         user.photos?.push(photo)
-        const copyData = this.data()
-        if (copyData)
-          copyData.user = user
-        this.data.set(copyData)
-        this.saveDataToLocalStorage()
+        this.setUser(user)
         return true
       }
     } catch (error) {
 
     }
     return false
+  }
+
+  private setUser(user: User) {
+    const copyData = this.data()
+    if (copyData)
+      copyData.user = user
+    this.data.set(copyData)
+    this.saveDataToLocalStorage()
   }
 }
