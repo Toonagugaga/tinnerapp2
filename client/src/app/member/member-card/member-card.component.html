@@ -1,24 +1,24 @@
 <mat-card class="example-card" appearance="outlined">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title><p>{{member().display_name}}</p></mat-card-title>
-      <mat-card-subtitle>{{member().username}}</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image [src]="member().photoOfTheDay" alt="Photo of a {{member().display_name}}">
-    <mat-card-content>
-      <p>
-        age: {{member().age}}
-      </p>
-      <p>
-        looking_for: {{member().looking_for}}
-      </p>
-      <p>
-        interest: {{member().interest}}
-      </p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
-    </mat-card-actions>
-  </mat-card>
-  
+  <mat-card-header>
+    <div mat-card-avatar class="header-image"></div>
+    <mat-card-title>{{ member().display_name }}</mat-card-title>
+    <mat-card-subtitle>{{ member().username }}</mat-card-subtitle>
+  </mat-card-header>
+  <img class="photo0fTheDay" mat-card-image [src]="member().photoOfTheDay" alt="Photo of a {{ member().display_name }}">
+  <mat-card-content>
+    <p>age: {{ member().age }} years</p>
+    <p>looking_for: {{ member().looking_for }}</p>
+    <p>interest: {{ member().interest }}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button (click)="toggleLike()">
+      @if (isFollowing) {
+        <span class="icon file pulse">favorite</span>
+      }
+      @if (!isFollowing) {
+<span class="icon">favorite</span>
+      }
+    </button>
+    <button mat-button routerLink="/members-profile/{{member().username}}">More Detail</button>
+  </mat-card-actions>
+</mat-card>

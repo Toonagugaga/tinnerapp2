@@ -5,6 +5,7 @@ import { User } from '../_models/user'
 import { firstValueFrom } from 'rxjs'
 import { parseUserPhoto } from '../_helper/helper'
 import { Photo } from '../_models/photo'
+import { cacheManager } from '../_helper/cache'
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +25,7 @@ export class AccountService {
   logout() {
     localStorage.removeItem(this._key)
     this.data.set(null)
+    cacheManager.clear('all')
   }
 
   async login(loginData: { username: string, password: string }): Promise<string> {
@@ -134,7 +136,9 @@ export class AccountService {
     }
     return false
   }
-
+  public SetUser(user: User) {
+    this.setUser(user)
+  }
   private setUser(user: User) {
     const copyData = this.data()
     if (copyData)

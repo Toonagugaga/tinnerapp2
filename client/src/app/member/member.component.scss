@@ -1,0 +1,12 @@
+.member-item {
+    max-width: 250px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 10px;
+}
+
+.member-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}

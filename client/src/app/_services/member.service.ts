@@ -4,7 +4,8 @@ import { environment } from '../../environments/environment'
 import { default_paginator, Paginator, UserQueryPagination } from '../_models/pagination'
 import { User } from '../_models/user'
 import { cacheManager } from '../_helper/cache'
-import { parseQuery } from '../_helper/helper'
+import { parseQuery, parseUserPhoto } from '../_helper/helper'
+import { firstValueFrom } from 'rxjs'
 
 type dataCategory = 'member' | 'follower' | 'following'
 @Injectable({
@@ -38,5 +39,22 @@ export class MemberService {
 
   getMembers() {
     this.getData('member')
+  }
+  async getMemberByUsername(username: string): Promise<User | undefined> {
+    const member = this.paginator().items.find(obj => obj.username === username)
+    if (member) {
+      console.log('get from cache')
+      return member
+    } else {
+      console.log('get from api')
+      try {
+        const url = this.url + 'user/' + username
+        const _member = await firstValueFrom(this.http.get<User>(url))
+        return parseUserPhoto(_member)
+      } catch (error) {
+        console.error('Get member Error', error)
+      }
+    }
+    return undefined
   }
 }

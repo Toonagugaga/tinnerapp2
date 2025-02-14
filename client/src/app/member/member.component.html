@@ -46,11 +46,15 @@
         </mat-expansion-panel>
       </mat-accordion>
       
-    @for (member of paginator().items; track member.id) {
-  
-    <app-member-card [member]="member"></app-member-card>
-  
-    }
+      <div class="member-list">
+        @for (member of paginator().items; track member.id) {
+          <div class="member-item">
+            <app-member-card [member]="member"></app-member-card>
+    
+          </div>
+        }
+
+      </div>
   
     <mat-paginator [length]="paginator().pagination.length" [pageSize]="paginator().pagination.pageSize"
       [pageSizeOptions]="pageSize"
