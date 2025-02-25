@@ -11,6 +11,7 @@ import staticPlugin from "@elysiajs/static"
 import { PhotoController } from "./controllers/photo.controller"
 import { LikeController } from "./controllers/like.controler"
 import { ErrorController } from "./controllers/errorController"
+import { MessageController } from "./controllers/message.controller"
 MongoDB.connect()
 const app = new Elysia()
   .use(ErrorController)
@@ -19,6 +20,7 @@ const app = new Elysia()
   .use(jwtConfig)
   .use(swaggerConfig)
   .use(LikeController)
+  .use(MessageController)
   // .use(Example)
   .use(UserController)
   .use(staticPlugin({

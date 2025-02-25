@@ -14,7 +14,7 @@ mat-toolbar button:not(.home-button) {
 
 mat-toolbar button.active:not(.home-button) {
     color: #500073;
-    border-bottom: 0.15em solid red;
+    border-bottom: 0.15em solid rgb(128, 80, 239);
 }
 
 mat-toolbar .home-button {

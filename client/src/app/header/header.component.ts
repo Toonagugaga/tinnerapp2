@@ -5,7 +5,6 @@ import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatMenuModule } from '@angular/material/menu'
 import { Router, RouterLink, RouterLinkActive } from '@angular/router'
 import { AccountService } from '../_services/account.service'
-import { User } from '../_models/user'
 
 @Component({
   selector: 'app-header',
