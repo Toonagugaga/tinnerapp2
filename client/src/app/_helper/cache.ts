@@ -1,9 +1,11 @@
+import { Message } from "../_models/message"
 import { Paginator, QueryPagination, UserQueryPagination } from "../_models/pagination"
 import { User } from "../_models/user"
 import { parseUserPhoto } from "./helper"
 const data = new Map()
 type cacheOpt = 'member' | 'chat' | 'follower' | 'following'
-type cacheValue = Paginator<UserQueryPagination, User> | Paginator<QueryPagination, User>
+type cacheValue = Paginator<UserQueryPagination, User> | Paginator<QueryPagination, User> |
+    Paginator<QueryPagination, Message>
 export const cacheManager = {
 
     createKey: function <T extends { [key: string]: any }>(query: T): string {
@@ -21,8 +23,8 @@ export const cacheManager = {
     },
 
     save: function (key: string, opt: cacheOpt, value: cacheValue) {
-        //if (opt === 'chat')
-        value.items = value.items.map(u => parseUserPhoto(u))
+        if (opt === 'chat')
+            value.items = value.items.map(u => parseUserPhoto(u as User))
         data.set(opt + key, value)
     },
     clear: function (opt: cacheOpt | 'all') {

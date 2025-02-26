@@ -3,8 +3,10 @@ import { inject, Injectable, signal } from '@angular/core'
 import { environment } from '../../environments/environment'
 import { Message } from '../_models/message'
 import { default_paginator, Paginator, QueryPagination } from '../_models/pagination'
-import { WebSocketSubject } from 'rxjs/webSocket'
-import { Subject } from 'rxjs'
+import { webSocket, WebSocketSubject } from 'rxjs/webSocket'
+import { delay, firstValueFrom, retry, Subject, timer } from 'rxjs'
+import { cacheManager } from '../_helper/cache'
+import { parseQuery } from '../_helper/helper'
 
 @Injectable({
   providedIn: 'root'
@@ -25,13 +27,66 @@ export class MessageService {
       ? `${protocol}//${window.location.host}${environment.wsUrl}`
       : environment.wsUrl
   }
-  connect(recipient_id: string, token: string, user_id: string): void { }
+  connect(recipient_id: string, token: string, user_id: string): void {
+    const RECONNECT_INTERVAL = 5000
+    this.socket$ = webSocket(`${this.wsUrl}?token=${token}&recipient_id=${recipient_id}`)
+    this.socket$.pipe(
+      retry({
+        delay: err => {
+          console.error(`connection lose`)
+          this.isWSConnected.set(false)
+          console.log(`ws connection down ,will attemp reconnection in ${RECONNECT_INTERVAL}ms`)
+          return timer(RECONNECT_INTERVAL)
+        }
+      })
+    ).subscribe({
+      next: msg => {
+        this.isWSConnected.set(true)
+        const message = msg as Message
+        if (message.sender && message.recipient) {
+          this.messageSubject.next(message)
+        }
+      },
+      error: err => {
+        this.isWSConnected.set(false)
+        console.log('ws :error,somthing went wrong!!')
+        console.error(err)
+      },
+      complete: () => {
+        this.isWSConnected.set(false)
+        console.log('ws disconnected')
+      }
+    })
 
-  sendMessage(message: Message): void { }
-
-  close() {
-    this.socket$.complete
   }
 
-  getMessageHistory(recipient_id: string) { }
+  sendMessage(message: Message): void {
+    this.socket$.next(message)
+  }
+
+  close() {
+    this.socket$.complete()
+  }
+
+  async getMessageHistory(recipient_id: string) {
+    const pagination = this.paginator().pagination
+    const key = cacheManager.createKey(pagination)
+
+    const paginationCache = cacheManager.load(key, 'chat')
+    if (paginationCache) {
+      this.paginator.set(paginationCache)
+      console.log('load chat history from cache')
+      return
+    }
+    console.log('get chat history from server')
+    const url = this.baseUrl + `/${recipient_id}` + parseQuery(pagination)
+    try {
+      const paginator = await firstValueFrom(this.http.get<Paginator<QueryPagination, Message>>(url))
+      cacheManager.save(key, 'chat', paginator)
+      this.paginator.set(paginator)
+    } catch (error) {
+      console.error(`Error: load chat history from server fail `)
+      console.error(error)
+    }
+  }
 }

@@ -61,11 +61,7 @@ export class LikeService {
 
     if (cacheData) {
       console.log(`⟶ Load ${type} data from cache`)
-      setSignal(cacheData)
-      if (type === 'following')
-        this.following.set(cacheData)
-      else
-        this.followers.set(cacheData)
+      setSignal(cacheData as Paginator<UserQueryPagination, User>)
       return
     }
 

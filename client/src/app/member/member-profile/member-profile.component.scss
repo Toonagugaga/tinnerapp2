@@ -1,5 +1,6 @@
 .drawer-container {
-    height: calc(100vh - 100px);
+    height: calc(100vh - 70px);
+    // border: 1px solid red;
 
     .sidenav-content {
         display: flex;
@@ -11,7 +12,7 @@
     }
 
     .sidenav {
-        width: 75%;
+        width: 95%;
         padding-top: 1em;
         padding-left: 2em;
 
@@ -21,11 +22,11 @@
     }
 
     .img-thumb {
-        width: 200px;
+        width: 250px;
     }
 
     mat-card {
-        width: 95%;
+        width: 98%;
         height: 100%;
     }
 
@@ -42,7 +43,6 @@
     .gallery {
         margin-right: 2em;
     }
-
 }
 
 .chatter {
@@ -51,9 +51,9 @@
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, 50%);
+    transform: translate(-50%, -50%);
     z-index: 1000;
-    background-color: rgb(99, 67, 113);
+    background-color: rgba(66, 56, 56, 0.685);
 
     .chat-container {
         background-color: rgba(255, 255, 255, 0.425);
@@ -65,37 +65,9 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -60%);
-        height: calc(100vh - 100px);
+        height: calc(100vh - 250px);
         max-width: 800px;
         width: calc(100% - 5em);
-
-        .chat-title {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 0;
-            color: #0484ea;
-
-            div {
-                margin-left: 5px;
-
-            }
-
-            button {
-                margin: 0;
-                background-color: #fdfdfd00;
-                cursor: pointer;
-                border: none;
-
-                :hover {
-                    color: #77b5f8;
-                }
-            }
-
-            .get-more-msg {
-                cursor: pointer;
-            }
-        }
 
         .chat {
             display: flex;
@@ -109,7 +81,7 @@
             height: 100%;
             max-height: calc(100vh - 350px);
             width: calc(100% - 20px);
-            overflow: auto;
+            overflow-y: auto;
 
             li {
                 width: 98%;
@@ -120,50 +92,82 @@
             }
         }
 
-        .input-container {
-            position: relative;
-            width: calc(100% - 50px);
-            margin-top: 0.5em;
-            margin-left: 1em;
-            padding: 0 10px 0 10px;
-            background-color: white;
-            border: 2px solid #ccc;
-            border-radius: 5px;
 
-            input {
-                font-size: medium;
-                width: calc(100% - 20px);
-                padding-right: 50px;
-                outline: none;
-                box-sizing: border-box;
-                overflow: hidden;
-                white-space: nowrap;
-                text-overflow: ellipsis;
-                border: none;
-            }
-
-            button {
-                position: absolute;
-                right: 5px;
-                top: 50%;
-                transform: translateY(-50%);
-                background-color: #007bff;
-                color: white;
-                border: none;
-                border-radius: 5px;
-                padding: 10px 15px;
-                cursor: pointer;
-
-                :hover {
-                    background-color: #0056b3;
-                }
-            }
-        }
 
         .chat {
             scrollbar-width: thin;
             scrollbar-color: #0484da91 rgba(0, 0, 0, 0.13);
         }
+    }
+}
+
+.chat-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    color: #0484da;
+
+    div {
+        margin-left: 5px;
+    }
+
+    button {
+        margin: 0;
+        background-color: #fdfdfd00;
+        cursor: pointer;
+        border: none;
+
+        :hover {
+            color: #77b5f8;
+        }
+    }
+
+    .get-more-msg {
+        cursor: pointer;
+    }
+}
+
+.input-container {
+    position: relative;
+    width: calc(100% - 50px);
+    margin-top: 0.5em;
+    margin-left: 1em;
+    padding: 0 10px 0 10px;
+    background-color: white;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    border: none;
+    height: 45px;
+
+    input {
+        margin-top: 1em;
+        font-size: medium;
+        width: calc(100% - 20px);
+        padding-right: 50px;
+        outline: none;
+        box-sizing: border-box;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        border: none;
+    }
+
+    button {
+        position: absolute;
+        right: 5px;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 15px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #0056b3;
     }
 }
 

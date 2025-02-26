@@ -1,0 +1,14 @@
+@if (isDateSamePreviousMessageSenDate()===false) {
+    <p class="send-date">{{messageDate}}</p>
+}
+<div class="message-container">
+    <div class="message {{messageStyle}}">
+    <img src="{{avatar}}" alt="member-avatar" class="chat-avatar">
+    <p class="message-content">{{message().content}}</p>
+    <p class="read-date {{messageStyle}}">
+        @if(isMessageFromSender){
+         {{readAt}}
+        }
+    </p>
+    </div>
+</div>

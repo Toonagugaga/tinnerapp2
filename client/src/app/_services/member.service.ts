@@ -22,7 +22,7 @@ export class MemberService {
     const cacheData = cacheManager.load(key, category)
     if (cacheData) {
       console.log(`load ${category} from cache !!`)
-      this.paginator.set(cacheData)
+      this.paginator.set(cacheData as Paginator<UserQueryPagination, User>)
       return
     }
     //get from server
